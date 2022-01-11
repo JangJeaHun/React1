@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>로그인</title>
+</head>
+<body>
+    <h1>로그인</h1>
+    <script>
+        admin_Id = "admin"
+        admin_Pw = "112233"
+        var user_Id = prompt("아이디를 입력하세요");
+        
+
+        if(admin_Id == user_Id){
+            var user_Pw = prompt("비밀번호를 입력하세요");
+            if(admin_Pw == user_Pw){
+                alert("관리자로 로그인 되었습니다.");
+                var page_move = confirm("관리지페이지로 이동하겠습니까?")
+                if(page_move){
+                    location.href="http://www.naver.com";
+                }
+            }else{
+                alert("아이디,비밀번호를 확인해 주세요.");
+                location.reload();
+            }
+        }else{
+            alert("아이디를 확인해 주세요.")
+            location.reload();
+        }
+        
+    </script>
+</body>
+</html>

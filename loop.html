@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+
+    <style> 
+        .blue{
+            color: blue;
+        }
+        .red{
+            color: red;
+        }
+        .green{
+            color: green;
+        }
+        .aqua
+        {
+            color: aqua;
+        }
+        #tb1, #tb1 td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <h1>while loop</h1>
+    <p>1부터 100까지 5의배수는 빨간색, 7의 배수는 초록색,  5,7의 배수는 아쿠아색</p>
+
+    <script>
+        /* while(i>=10){
+            if(i%2 == 0){
+                document.write('<p class="blue">' + i + `</p>`);
+            } else{
+                document.write('<p class="red">' + i + `</p>`);
+            }
+            i--;
+        }
+
+        <!-- while(i>=10){
+            if(i%2 == 0){
+                document.write('<p class="blue">' + i + `</p>`);
+            } else{
+                document.write('<p class="red">' + i + `</p>`);
+            }
+            
+            total += i;
+            i--;
+        }
+        document.write(total); -->
+        
+        var max = 100;
+        var result=0;
+        for(i=1;i<=max;i++){
+            if(i % 5==0 && i % 7 !=0){
+                document.write('<p class="red">' + i + `</p>`);
+            }else if(i%5!=0 && i % 7==0){
+                document.write('<p class="green">' + i + `</p>`);
+            }else if(i % 5==0 && i % 7==0){
+                document.write('<p class="aqua">' + i + `</p>`);
+            }
+            result+=i;
+        }
+        document.write(`1부터 ${max}까지의 총 합계:`+result)
+
+        */
+        var num=1;
+        var max = 100;
+        var t="<table id=\"tb1\">";
+
+        for(i=1;i<=max;i++){
+            t+="<tr>"
+
+            for(j=1;j<=max;j++){
+                t+="<td>"+num+"</td>"
+                num++;
+            }
+            t+="</tr>";
+        }
+        
+        t+="</table>";
+
+        console.log(t);
+        document.write(t)
+
+        
+    </script>
+    
+</body>
+</html>

@@ -1,30 +1,25 @@
-var user_no = 1;
-var user_name = "이박사";
-var user_age = 35;
-var user_job = "연구원";
-var user_addr = "서울";
-
-var d = [
-    1,
-    "이박사",
-    35,
-    "연구원",
-    "서울",
-    "미혼"
-];
-
-console.log(d);
-console.log(d[1]);
-console.log(d[2]);
-console.log(d[3]);
-console.log(d[4]);
-console.log(d[5]);
+var arr_1 = ["사당","교대","방배","강남"];
+var arr_2 = ["신사","압구정","옥수"];
 
 
+// var result = arr_1.join("-");
+// console.log(arr_1);
+// console.log(result);
 
-for(var i=0;i<d.length;i++){
-    console.log(d[i]);
-}
+// result = arr_1.concat(arr_2);
+// console.log(result);
+// console.log(result.length);
 
+// result = arr_1.slice(1,3);
+// console.log(result);
+// console.log("원본 데이터 : "+arr_1);
 
-console.log(d.length);
+// arr_1.sort();
+// console.log(arr_1);
+// arr_1.reverse();
+// console.log(arr_1);
+
+// arr_1.splice(3,1,"옥수","압구정");
+// console.log(arr_1);
+arr_1.unshift("화정","농성","소태");
+console.log(arr_1);

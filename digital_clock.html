@@ -111,13 +111,14 @@
         }
         
         var now_Weather = ["sunny","windy","cloudy","rainy","snow"];
-        var weather_img = "images/" + now_Weather[Math.ceil(Math.random()*5)]+".png"
+        var weather_img = "images/" + now_Weather[Math.floor(Math.random()*4)]+".png"
+        document.write(Math.ceil(Math.random()*5));
         
 
 
         var weatherBox = document.getElementById("weather_box");
         var ampmBox = document.getElementById("ampm_box");
-        var clock_legs =  document.getElementsByClassName("clock_legs")
+        var clock_legs =  document.getElementsByClassName("clock_legs");
 
         hoursBox.innerText = my_hours;
         minsBox.innerText = my_mins;

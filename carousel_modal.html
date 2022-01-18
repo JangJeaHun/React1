@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>carousel</title>
+
+    <style>
+        #modal {
+            display: none;
+        }
+
+        #box,
+        #box_colm {
+            width: 500px;
+            height: 400px;
+            margin: 50px auto;
+            border: 1px solid red;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        #box {
+            background: url("images/carousel_img.png");
+        }
+
+        #box_colm {
+            background: url("images/carousel_img_colm.png");
+        }
+
+
+        #box_colm {
+            width: 400px;
+            height: 500px;
+            margin: 40px auto;
+            border: 1px solid red;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        #item_title,
+        #item_title_colm {
+            background: black;
+            width: 60%;
+            height: 50px;
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+            text-transform: uppercase;
+            line-height: 50px;
+            position: absolute;
+            left: 50%;
+            bottom: 3%;
+            transform: translate(-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="h1_text">3초 뒤에 창이 뜹니다</h1>
+    <div id="modal">
+        <div class="box_wrap">
+            <div id="box">
+                <div id="item_title">
+                    아이폰 12
+                </div>
+                <button id="box_close">닫기</button>
+            </div>
+        </div>
+        <div id="box_colm">
+            <div id="item_title_colm">
+                아이폰 12
+            </div>
+            <button id="box_colm_close">닫기</button>
+        </div>
+    </div>
+
+    <script>
+        var MODAL = document.getElementById("modal");
+        var H1_TEXT= document.getElementsByClassName("h1_text");
+        var timerID = setTimeout(modalSet, 3000);
+
+        function modalSet() {
+            MODAL.style.display = "block"
+        };
+
+        var BOX = document.getElementById("box");
+        var TITLE_BOX = document.getElementById("item_title");
+        var TITLE_BOX_COLM = document.getElementById("item_title_colm");
+        var BOX_COLM = document.getElementById("box_colm");
+        var WRAP = document.querySelector("box_wrap");
+        var BOX_CLOSE = document.querySelector("box_close");
+        var BOX_COLM_CLOSE = document.querySelector("box_colm_close");
+
+
+
+        var TITLE = [
+            "아이폰 12",
+            "아이패드",
+            "아이팟",
+            "아이워치"
+        ]
+        var BOX_WIDTH = 500;
+        var INDEX = 0;
+        TITLE_BOX.innerText = TITLE[INDEX];
+
+        var carousel = setInterval(rotation, 5000);
+
+        function rotation() {
+            console.log("현재 인덱스 값:" + INDEX);
+            if (INDEX < 3) {
+                INDEX++;
+            } else {
+                INDEX = 0;
+            }
+            imgDistance = -BOX_WIDTH * INDEX;
+
+            BOX.style.backgroundPositionX = imgDistance + "px";
+            BOX_COLM.style.backgroundPositionY = imgDistance + "px";
+            TITLE_BOX.innerText = TITLE[INDEX];
+            TITLE_BOX_COLM.innerText = TITLE[INDEX];
+        }
+
+        BOX_CLOSE.addEventListener("click",function(){
+            BOX.style.display="none"
+        })
+        BOX_COLM_CLOSE.addEventListener("click",function(){
+            BOX_COLM.style.display="none"
+        })
+
+
+        WRAP.addEventListener("mouseover", function () {
+            console.log("mouse over!");
+            clearInterval(carousel);
+        })
+        WRAP.addEventListener("mouseout", function () {
+            console.log("mouse out!");
+            setInterval(carousel);
+        })
+    </script>
+</body>
+
+</html>

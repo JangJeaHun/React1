@@ -66,35 +66,49 @@
                 <div id="item_title">
                     아이폰 12
                 </div>
-                <button id="box_close">닫기</button>
+                <!-- <button id="box_close">닫기</button> -->
+                <input type="button" id="box_close" value="닫기">
             </div>
         </div>
-        <div id="box_colm">
-            <div id="item_title_colm">
-                아이폰 12
+        <div class="box_wrap">
+            <div id="box_colm">
+                <div id="item_title_colm">
+                    아이폰 12
+                </div>
+                <button id="box_colm_close">닫기</button>
             </div>
-            <button id="box_colm_close">닫기</button>
         </div>
     </div>
 
+
+
+
+
+
+
+
+
+
+
     <script>
         var MODAL = document.getElementById("modal");
-        var H1_TEXT= document.getElementsByClassName("h1_text");
+        
         var timerID = setTimeout(modalSet, 3000);
-
         function modalSet() {
             MODAL.style.display = "block"
         };
 
+        
         var BOX = document.getElementById("box");
+        var BOX_COLM = document.getElementById("box_colm");
         var TITLE_BOX = document.getElementById("item_title");
         var TITLE_BOX_COLM = document.getElementById("item_title_colm");
-        var BOX_COLM = document.getElementById("box_colm");
-        var WRAP = document.querySelector("box_wrap");
-        var BOX_CLOSE = document.querySelector("box_close");
-        var BOX_COLM_CLOSE = document.querySelector("box_colm_close");
-
-
+        var WRAP = document.querySelectorAll("box_wrap");
+        
+        var BOX_CLOSE = document.querySelectorAll("box_close");
+        var BOX_COLM_CLOSE = document.querySelectorAll("box_colm_close");
+        
+        
 
         var TITLE = [
             "아이폰 12",
@@ -104,10 +118,9 @@
         ]
         var BOX_WIDTH = 500;
         var INDEX = 0;
-        TITLE_BOX.innerText = TITLE[INDEX];
-
-        var carousel = setInterval(rotation, 5000);
-
+        // TITLE_BOX.innerText = TITLE[INDEX];
+////////////////메인 화면 구성////////
+        var carousel = setInterval(rotation, 2000); //사진 속도 값
         function rotation() {
             console.log("현재 인덱스 값:" + INDEX);
             if (INDEX < 3) {
@@ -122,23 +135,29 @@
             TITLE_BOX.innerText = TITLE[INDEX];
             TITLE_BOX_COLM.innerText = TITLE[INDEX];
         }
-
-        BOX_CLOSE.addEventListener("click",function(){
+////////////////메인 화면 구성////////
+            
+/////클릭할때?? 닫기 버튼////
+        BOX_CLOSE.addEventListener('click',function(){
             BOX.style.display="none"
-        })
-        BOX_COLM_CLOSE.addEventListener("click",function(){
+        });
+        // BOX_CLOSE.innerText
+        BOX_COLM_CLOSE.addEventListener('click',function(){
             BOX_COLM.style.display="none"
-        })
+        });
+/////클릭할때?? 닫기 버튼////
 
 
+///마우스를 올려 놓고 벗어 놨을때 다시 구동 부분/////
         WRAP.addEventListener("mouseover", function () {
             console.log("mouse over!");
             clearInterval(carousel);
-        })
+        });
         WRAP.addEventListener("mouseout", function () {
             console.log("mouse out!");
             setInterval(carousel);
-        })
+        });
+///마우스를 올려 놓고 벗어 놨을때 다시 구동 부분////
     </script>
 </body>
 

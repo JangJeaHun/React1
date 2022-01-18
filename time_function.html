@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>time </title>
+</head>
+<body>
+    <ul>
+        <li>setInterval() clearInterval()</li>
+        <li>setTimeout() clearTimeout()</li>
+    </ul>
+
+    <button id="addBtn">덧셈 정지</button>
+    <button id="subBtn">뺄셈 정지</button>
+    <button id="readdBtn">덧셈 다시시작</button>
+    <button id="resubBtn">뺄셈 다시시작</button>
+
+    <script>
+        var addNum = 0;
+        var subNum = 1000;
+
+        var auto_1 = setInterval(function(){
+            addNum++;
+            console.log("addNum :" + addNum);
+        },2000);
+        
+        var auto_2 = setInterval(function(){
+            subNum--;
+            console.log("subNum :" + subNum);
+        },2000);
+
+        //DOM선택 (selector)
+        var $addBtn = document.querySelector("#addBtn");
+        var $subBtn = document.querySelector("#subBtn");
+        var $readdBtn = document.querySelector("#readdBtn");
+        var $resubBtn = document.querySelector("#resubBtn");
+
+        $addBtn.addEventListener("click",function(){
+            clearInterval(auto_1)
+        });
+
+        $subBtn.addEventListener("click",function(){
+            clearInterval(auto_2)
+        });
+
+        $readdBtn.addEventListener("click",function(){
+            var auto_1 = setInterval(function(){
+                addNum++;
+                console.log("addNum :" + addNum);
+            },2000);
+        
+        });
+
+        $resubBtn.addEventListener("click",function(){
+            var auto_2 = setInterval(function(){
+                subNum--;
+                console.log("subNum :" + subNum);
+            },2000);
+        });
+
+    </script>
+</body>
+</html>

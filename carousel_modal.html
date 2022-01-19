@@ -56,6 +56,7 @@
             transform: translate(-50%);
         }
     </style>
+    
 </head>
 
 <body>
@@ -103,10 +104,10 @@
         var BOX_COLM = document.getElementById("box_colm");
         var TITLE_BOX = document.getElementById("item_title");
         var TITLE_BOX_COLM = document.getElementById("item_title_colm");
-        var WRAP = document.querySelectorAll("box_wrap");
+        var WRAP = document.getElementsByClassName("box_wrap");
         
-        var BOX_CLOSE = document.querySelectorAll("box_close");
-        var BOX_COLM_CLOSE = document.querySelectorAll("box_colm_close");
+        var BOX_CLOSE = document.getElementById("box_close");
+        var BOX_COLM_CLOSE = document.getElementById("box_colm_close");
         
         
 
@@ -116,6 +117,7 @@
             "아이팟",
             "아이워치"
         ]
+
         var BOX_WIDTH = 500;
         var INDEX = 0;
         // TITLE_BOX.innerText = TITLE[INDEX];
@@ -138,11 +140,11 @@
 ////////////////메인 화면 구성////////
             
 /////클릭할때?? 닫기 버튼////
-        BOX_CLOSE.addEventListener('click',function(){
+        BOX_CLOSE.addEventListener('click',function(){  //가로
             BOX.style.display="none"
         });
         // BOX_CLOSE.innerText
-        BOX_COLM_CLOSE.addEventListener('click',function(){
+        BOX_COLM_CLOSE.addEventListener('click',function(){ //세로
             BOX_COLM.style.display="none"
         });
 /////클릭할때?? 닫기 버튼////
@@ -150,12 +152,12 @@
 
 ///마우스를 올려 놓고 벗어 놨을때 다시 구동 부분/////
         WRAP.addEventListener("mouseover", function () {
-            console.log("mouse over!");
-            clearInterval(carousel);
+            console.log("mouse over!")
+            clearInterval(carousel)
         });
         WRAP.addEventListener("mouseout", function () {
-            console.log("mouse out!");
-            setInterval(carousel);
+            console.log("mouse out!")
+            setInterval(carousel)
         });
 ///마우스를 올려 놓고 벗어 놨을때 다시 구동 부분////
     </script>

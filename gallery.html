@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>갤러리</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+
+    <style>
+        h1{
+            text-align: center;
+        }
+        .gallery{
+            display: flex;
+            align-items: center;
+            width: 600px;
+            height: 600px;
+            margin: 0 auto;
+        }
+        button{
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            font-size: larger;
+            border: 0px;
+            background: white;
+            font-weight: 900;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>이미지 갤러리</h1>
+
+    <div class="gallery">
+        <div class="left_btn">
+            <button id="prev"><span class="fa fa-angle-left"></span></button>
+        </div>
+
+        <div class="thumb_wrap">
+            <img src="images/1.jpg" id="thumb" alt="image">
+        </div>
+
+        <div class="right_btn">
+            <button id="next"><span class="fa fa-angle-right"></span></button>
+        </div>
+    </div>
+
+    <script>
+        var prevBTN = document.querySelector("#prev");//버튼이전
+        var nextBTN = document.querySelector("#next");//버튼다음
+        var thumb = document.querySelector("#thumb");   //썸네일 이미지
+        
+        var currImg = 1;
+        var imgURL = "images/"+currImg +".jpg";
+        function init(){
+            //문서가 브라우저에 로드 되면, 곧바로 준비하는 함수
+            thumb.setAttribute("src",imgURL)
+        }
+        init();
+
+
+
+
+
+
+        
+        prevBTN.addEventListener("click",function(){
+            console.log("이전 버튼을 눌렀습니다.");
+        });
+        nextBTN.addEventListener("click",function(){
+            console.log("다음 버튼을 눌렀습니다.");
+        });
+    </script>
+</body>
+</html>

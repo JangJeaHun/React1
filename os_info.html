@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>운영체제 정보</title>
+</head>
+<body>
+    <h1>p.127 운영체제별 정보 (이미지) 출력</h1>
+
+    <script>
+    var info = navigator.userAgent.toLowerCase();
+    var osImg= null;
+    //console.log(matchText);
+    //var matchText = info.indexOf("apple");   //못찾으면 -1 반환
+
+
+        if(info.indexOf('windows') >=0 ){
+            osImg = "windows"
+        }else if(info.indexOf('unix') >=0 ){
+            osImg = "unix"
+        }else if(info.indexOf('iphone') >=0 ){
+            osImg = "iphone"
+        }else if(info.indexOf('android') >=0 ){
+            osImg = "android"
+        }else{
+            console.log("보기에 없는 운영체제입니다.")
+            osImg="etc.png"
+        }
+
+        document.write(info , "<br>")
+        document.write("===========접속자 정보============","<br>");
+        document.write("<img src=\"images/" +osImg+ ".png\" alt=    \"" +osImg+  " \">" );
+                       
+    </script>
+    
+</body>
+</html>

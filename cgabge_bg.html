@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버튼으로 배경색 바꾸기</title>
+</head>
+
+<body id="theBody">
+    <h1>p.134</h1>
+    <p>함수를 이용하여 배경색을 바꾸기</p>
+    <button id="changeBtn">배경색바꾸기</button>
+
+
+    <script>
+        var colors = [
+        "white",
+        "yellow",
+        "aqua",
+        "purple",
+        "red",
+        "green"]
+        var changeBtn = document.querySelector("#changeBtn")
+        var i = 0;
+
+        changeBtn.addEventListener("click",function(){
+            if(i>=5){
+                i = 0;
+            }else{
+                i++ ;
+            }
+
+            
+            var bodyTag = document.getElementById("theBody");
+            bodyTag.style.backgroundColor = colors[i];
+            console.log("랜덤숫자 : " + Math.floor(Math.random()*colors.length));
+        })   
+    </script>
+</body>
+
+
+</html>

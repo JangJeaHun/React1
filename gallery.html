@@ -18,6 +18,15 @@
             height: 600px;
             margin: 0 auto;
         }
+        .thumb_wrap{
+        position: relative;
+        }
+
+        .paging{
+        position: absolute;
+        background: red;
+
+        }
         button{
             width: 100px;
             height: 100px;
@@ -39,6 +48,7 @@
         </div>
 
         <div class="thumb_wrap">
+            <div class="paging"> 1 / 5 </div>
             <img src="images/1.jpg" id="thumb" alt="image">
         </div>
 
@@ -47,31 +57,8 @@
         </div>
     </div>
 
-    <script>
-        var prevBTN = document.querySelector("#prev");//버튼이전
-        var nextBTN = document.querySelector("#next");//버튼다음
-        var thumb = document.querySelector("#thumb");   //썸네일 이미지
+    <script src="gallery.js">
         
-        var currImg = 1;
-        var imgURL = "images/"+currImg +".jpg";
-        function init(){
-            //문서가 브라우저에 로드 되면, 곧바로 준비하는 함수
-            thumb.setAttribute("src",imgURL)
-        }
-        init();
-
-
-
-
-
-
-        
-        prevBTN.addEventListener("click",function(){
-            console.log("이전 버튼을 눌렀습니다.");
-        });
-        nextBTN.addEventListener("click",function(){
-            console.log("다음 버튼을 눌렀습니다.");
-        });
     </script>
 </body>
 </html>

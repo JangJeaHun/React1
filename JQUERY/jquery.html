@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>제이쿼리 연결하기</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"> </script>
+    
+
+    <style>
+
+ 
+    </style>
+  </head>
+
+
+  <body>
+    <h1>제이쿼리 연결</h1>
+    <h2>제이쿼리 사용</h2>
+    <p>제이쿼리 선택자</p>
+
+    <button id="bigger">크게</button>
+    <button id="smaller">작게</button>
+    <section id="food_1">
+        <h2>한식</h2>
+        <ul>
+            <li>김치</li>
+            <li>불고기</li>
+        </ul>
+    </section>
+
+    <section id="food_2">
+        <h2>양식</h2>
+        <ul>
+            <li>피자</li>
+            <li>파스타</li>
+        </ul>
+    </section>
+
+    <script>
+      $(function () {
+        //jquery 선택자.....
+        $("#food_1").css({
+            "color":"red",
+            fontSize:"4rem",
+            "backgroundColor":"gold"
+        });
+
+        $("#bigger").click(function(){
+            //글자를 키운다.
+            
+            if(parseInt($("body").css("font-size")) < 26){
+                $("body").css("font-size","+=2");
+            } else{
+                alert("더 이상 키울수 없습니다");
+            }
+            console.log(parseInt($("body").css("font-size")))
+            });
+
+
+            
+        $("#smaller").click(function(){
+
+            //글자를 키운다.
+            if(parseInt($("body").css("font-size")) > 10){
+                $("body").css("font-size","-=2");
+            } else{
+                alert("더 이상 작게 할 수 없습니다");
+            }
+            console.log(parseInt($("body").css("font-size")))
+            
+
+        });
+
+
+
+
+      });
+    </script>
+  </body>
+</html>

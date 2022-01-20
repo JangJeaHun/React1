@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p class="example">sample text - for bigger and smaller</p>
+        <button v-on:click="bigger">크게</button>
+        <button v-on:click="smaller">작게</button>
+    </div>
+
+    
+    <script>
+        new Vue({
+            el: '#app',
+            date:{
+                fontSize: 16
+            },
+            methods:{
+                setFont(size){
+                    document.querySelector(".example").style.fontSize = fontSize;
+                },
+
+
+                bigger(){
+                    console.log(this.fontSize)
+                    if(this.fontSize <= 20){
+                        this.fontSize += 2;
+                        this.setFont(this.fontSize);
+                    }else{
+                        alert("더 이상 키울수 없습니다.");
+                    }
+
+
+                },
+                smaller(){
+                    console.log(this.fontSize)
+                    if(this.fontSize >= 10){
+                        this.fontSize -= 2;
+                        this.setFont(this.fontSize);
+                    }else{
+                        alert("더 이상 작게 할 수 없습니다.");
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

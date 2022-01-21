@@ -9,21 +9,22 @@
 </head>
 <body>
     <div id="app">
-        <p class="example">sample text - for bigger and smaller</p>
         <button v-on:click="bigger">크게</button>
         <button v-on:click="smaller">작게</button>
+        <p class="example">sample text - for bigger and smaller</p>
     </div>
 
     
     <script>
         new Vue({
             el: '#app',
-            date:{
+            data:{
                 fontSize: 16
+                
             },
             methods:{
                 setFont(size){
-                    document.querySelector(".example").style.fontSize = fontSize;
+                    document.querySelector(".example").style.fontSize = Size+"px";
                 },
 
 

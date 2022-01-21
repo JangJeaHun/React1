@@ -6,77 +6,191 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>제이쿼리 연결하기</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"> </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet">
     
-
     <style>
+        *:visited{
+            color: black;
+        }
 
- 
+        #food_1 {
+            transition: all 0.3s ;
+        }
+        header{
+            width: 1000px;
+            height: 100px;
+            background: peru;
+            margin: 0 auto;
+            display: flex;
+        }
+        .logo{
+            width: 100px;
+            margin: 10px 0 10px;
+            background: ivory;          
+        }
+        .main-nav{
+            width: 100%;
+            background: rgb(209, 27, 209);
+        }
+        #gnb{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+        #gnb > li{
+            text-align: center;
+            line-height: 50px;
+            height: 60px;
+            font-size: larger;
+            width: 100px;
+            background: red;
+            color: white;
+        }
+        #gnb li ul {
+            display: none;
+            top: 100%;
+            transition: all 1s;
+            background: rgb(245, 150, 245);
+            width: 100%;
+            height: 250px;
+            color: white;
+        }
+
+    
     </style>
   </head>
 
 
   <body>
-    <h1>제이쿼리 연결</h1>
-    <h2>제이쿼리 사용</h2>
-    <p>제이쿼리 선택자</p>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="logo">
+        </div>
 
-    <button id="bigger">크게</button>
-    <button id="smaller">작게</button>
-    <section id="food_1">
-        <h2>한식</h2>
-        <ul>
-            <li>김치</li>
-            <li>불고기</li>
-        </ul>
-    </section>
+        <nav class="main-nav">
+            <ul id="gnb">
+                <li><a href="#"> 메뉴1</a>
+                    <ul class="lnb1">
+                        <li>한식</li>
+                        <li>중식</li>
+                        <li>양식</li>
+                        <li>일식</li>
+                        <li>기타</li>
+                    </ul></li>
+                <li id="tg"><a href="#"> 메뉴2</a>
+                    <ul class="lnb2">
+                        <li>한식</li>
+                        <li>중식</li>
+                        <li>양식</li>
+                        <li>일식</li>
+                        <li>기타</li>
+                    </ul>
+                </li>
+                <li><a href="#"> 메뉴3</a>
+                    <ul class="lnb3">
+                        <li>한식</li>
+                        <li>중식</li>
+                        <li>양식</li>
+                        <li>일식</li>
+                        <li>기타</li>
+                    </ul></li>
+                <li><a href="#"> 메뉴4</a>
+                    <ul class="lnb4">
+                        <li>한식</li>
+                        <li>중식</li>
+                        <li>양식</li>
+                        <li>일식</li>
+                        <li>기타</li>
+                    </ul></li>
+            </ul>
+        </nav>
 
-    <section id="food_2">
-        <h2>양식</h2>
-        <ul>
-            <li>피자</li>
-            <li>파스타</li>
-        </ul>
+    </header>
+
+
+
+    
+    <section>
     </section>
 
     <script>
-      $(function () {
-        //jquery 선택자.....
-        $("#food_1").css({
-            "color":"red",
-            fontSize:"4rem",
-            "backgroundColor":"gold"
-        });
+        
+       $(function(){
+           $("#tg").prev().mouseover(function(){
+            console.log("마우스 위이이이위위")
 
-        $("#bigger").click(function(){
-            //글자를 키운다.
-            
-            if(parseInt($("body").css("font-size")) < 26){
-                $("body").css("font-size","+=2");
-            } else{
-                alert("더 이상 키울수 없습니다");
-            }
-            console.log(parseInt($("body").css("font-size")))
-            });
+            $(".lnb1").css({
+                display : "block"
+            })
 
-
-            
-        $("#smaller").click(function(){
-
-            //글자를 키운다.
-            if(parseInt($("body").css("font-size")) > 10){
-                $("body").css("font-size","-=2");
-            } else{
-                alert("더 이상 작게 할 수 없습니다");
-            }
-            console.log(parseInt($("body").css("font-size")))
-            
-
-        });
+           })
+       })
+       $(function(){
+           $("#tg").prev().mouseout(function(){
+            console.log("마우스 벗어어어어어어낳어")
+            $(".lnb1").css({
+                display : "none"
+            })
+           })
+       })
 
 
+       $(function(){
+           $("#tg").mouseover(function(){
+            console.log("마우스 위이이이위위")
+            $(".lnb2").css({
+                display : "block"
+            })
+
+           })
+       })
+       $(function(){
+           $("#tg").mouseout(function(){
+            console.log("마우스 벗어어어어어어낳어")
+            $(".lnb2").css({
+                display : "none"
+            })
+           })
+       })
 
 
-      });
+       $(function(){
+           $("#tg").next().mouseover(function(){
+            console.log("마우스 위이이이위위")
+            $(".lnb3").css({
+                display : "block"
+            })
+
+           })
+       })
+       $(function(){
+           $("#tg").next().mouseout(function(){
+            console.log("마우스 벗어어어어어어낳어")
+            $(".lnb3").css({
+                display : "none"
+            })
+           })
+       })
+
+
+       $(function(){
+           $("#tg").next().next().mouseover(function(){
+            console.log("마우스 위이이이위위")
+            $(".lnb4").css({
+                display : "block"
+            })
+
+           })
+       })
+       $(function(){
+           $("#tg").next().next().mouseout(function(){
+            console.log("마우스 벗어어어어어어낳어")
+            $(".lnb4").css({
+                display : "none"
+            })
+           })
+       })
     </script>
   </body>
 </html>

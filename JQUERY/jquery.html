@@ -5,192 +5,354 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>제이쿼리 연결하기</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"> </script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet">
-    
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+      rel="stylesheet"
+    />
+
     <style>
-        *:visited{
-            color: black;
-        }
+      *:visited {
+        color: black;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
 
-        #food_1 {
-            transition: all 0.3s ;
-        }
-        header{
-            width: 1000px;
-            height: 100px;
-            background: peru;
-            margin: 0 auto;
-            display: flex;
-        }
-        .logo{
-            width: 100px;
-            margin: 10px 0 10px;
-            background: ivory;          
-        }
-        .main-nav{
-            width: 100%;
-            background: rgb(209, 27, 209);
-        }
-        #gnb{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            
-        }
-        #gnb > li{
-            text-align: center;
-            line-height: 50px;
-            height: 60px;
-            font-size: larger;
-            width: 100px;
-            background: red;
-            color: white;
-        }
-        #gnb li ul {
-            display: none;
-            top: 100%;
-            transition: all 1s;
-            background: rgb(245, 150, 245);
-            width: 100%;
-            height: 250px;
-            color: white;
-        }
+      header {
+        width: 100%;
+        background: #e6e0bb;
+      }
+      .header_warp {
+        width: 1000px;
+        margin: 0 auto;
+        display: flex;
+      }
+      .logo {
+        width: 100px;
+        margin: 10px 0 10px;
+      }
+      .main-nav {
+        width: 100%;
+        background: #e6e0bb;
+      }
+      #gnb {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+      }
+      #gnb > li {
+        display: inline-block;
+        line-height: 50px;
+        height: 100px;
+        font-size: larger;
+        color: black;
+        width: 200px;
+      }
+      #gnb li a {
+        padding: 25px;
+        display: block;
+      }
+      #gnb > li > a:hover {
+        background: #9c987c;
+        color: white;
+      }
+      #gnb li ul {
+        display: none;
+        top: 100%;
+        transition: all 1s;
+        background: #e6e0bb;
+        color: black;
+      }
 
-    
+      #gnb li ul li a:hover {
+        background: #9c987c;
+        font-size: larger;
+        color: white;
+      }
+      /**********header 부분 *****************/
+      #modal {
+        display: none;
+      }
+      .h1_text {
+        font-size: 3rem;
+        font-weight: bolder;
+      }
+      #box,
+      #box_colm {
+        width: 500px;
+        height: 400px;
+        margin: 50px auto;
+        border: 1px solid red;
+        transition: all 0.4s;
+        position: relative;
+      }
+      #box {
+        background: url("images/carousel_img.png");
+      }
+      #box_colm {
+        background: url("images/carousel_img_colm.png");
+      }
+      #box_colm {
+        width: 400px;
+        height: 500px;
+        margin: 40px auto;
+        border: 1px solid red;
+        transition: all 0.4s;
+        position: relative;
+      }
+      #item_title,
+      #item_title_colm {
+        background: black;
+        width: 60%;
+        height: 50px;
+        border-radius: 20px;
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+        line-height: 50px;
+        position: absolute;
+        left: 50%;
+        bottom: 3%;
+        transform: translate(-50%);
+      }
     </style>
   </head>
 
-
   <body>
     <header>
+      <div class="header_warp">
         <div class="logo">
-            <img src="images/logo.png" alt="logo">
+          <img src="images/logo.png" alt="logo" />
         </div>
-
         <nav class="main-nav">
-            <ul id="gnb">
-                <li><a href="#"> 메뉴1</a>
-                    <ul class="lnb1">
-                        <li>한식</li>
-                        <li>중식</li>
-                        <li>양식</li>
-                        <li>일식</li>
-                        <li>기타</li>
-                    </ul></li>
-                <li id="tg"><a href="#"> 메뉴2</a>
-                    <ul class="lnb2">
-                        <li>한식</li>
-                        <li>중식</li>
-                        <li>양식</li>
-                        <li>일식</li>
-                        <li>기타</li>
-                    </ul>
-                </li>
-                <li><a href="#"> 메뉴3</a>
-                    <ul class="lnb3">
-                        <li>한식</li>
-                        <li>중식</li>
-                        <li>양식</li>
-                        <li>일식</li>
-                        <li>기타</li>
-                    </ul></li>
-                <li><a href="#"> 메뉴4</a>
-                    <ul class="lnb4">
-                        <li>한식</li>
-                        <li>중식</li>
-                        <li>양식</li>
-                        <li>일식</li>
-                        <li>기타</li>
-                    </ul></li>
-            </ul>
+          <ul id="gnb">
+            <li>
+              <a href="#"> HOME</a>
+              <ul class="lnb1">
+                <li><a href="#">한식</a></li>
+                <li><a href="#">중식</a></li>
+                <li><a href="#">양식</a></li>
+                <li><a href="#">일식</a></li>
+                <li><a href="#">기타</a></li>
+              </ul>
+            </li>
+            <li id="tg">
+              <a href="#">PORTFOLIO</a>
+              <ul class="lnb2">
+                <li><a href="#">한식</a></li>
+                <li><a href="#">중식</a></li>
+                <li><a href="#">양식</a></li>
+                <li><a href="#">일식</a></li>
+                <li><a href="#">기타</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">SERVICE</a>
+              <ul class="lnb3">
+                <li><a href="#">한식</a></li>
+                <li><a href="#">중식</a></li>
+                <li><a href="#">양식</a></li>
+                <li><a href="#">일식</a></li>
+                <li><a href="#">기타</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">CUSTOMER</a>
+              <ul class="lnb4">
+                <li><a href="#">한식</a></li>
+                <li><a href="#">중식</a></li>
+                <li><a href="#">양식</a></li>
+                <li><a href="#">일식</a></li>
+                <li><a href="#">기타</a></li>
+              </ul>
+            </li>
+          </ul>
         </nav>
-
+      </div>
     </header>
 
 
-
-    
     <section>
+    <h1 class="h1_text">3초 뒤에 창이 뜹니다</h1>
+    <div id="modal">
+      <div id="box_wrap">
+        <div id="box">
+          <div id="item_title">아이폰 12</div>
+          <!-- <button id="box_close">닫기</button> -->
+          <input type="button" id="box_close" value="닫기" />
+        </div>
+      </div>
+      <div id="box_wrap_colm">
+        <div id="box_colm">
+          <div id="item_title_colm">아이폰 12</div>
+          <button id="box_colm_close">닫기</button>
+        </div>
+      </div>
+    </div>
     </section>
 
+
+
+
     <script>
+      $(function () {
+        $("#tg")
+          .prev()
+          .mouseover(function () {
+            console.log("마우스 위이이이위위");
+
+            $(".lnb1").css({
+              display: "block",
+            });
+          });
+      });
+      $(function () {
+        $("#tg")
+          .prev()
+          .mouseout(function () {
+            console.log("마우스 벗어어어어어어낳어");
+            $(".lnb1").css({
+              display: "none",
+            });
+          });
+      });
+      $(function () {
+        $("#tg").mouseover(function () {
+          console.log("마우스 위이이이위위");
+          $(".lnb2").css({
+            display: "block",
+          });
+        });
+      });
+      $(function () {
+        $("#tg").mouseout(function () {
+          console.log("마우스 벗어어어어어어낳어");
+          $(".lnb2").css({
+            display: "none",
+          });
+        });
+      });
+
+      $(function () {
+        $("#tg")
+          .next()
+          .mouseover(function () {
+            console.log("마우스 위이이이위위");
+            $(".lnb3").css({
+              display: "block",
+            });
+          });
+      });
+      $(function () {
+        $("#tg")
+          .next()
+          .mouseout(function () {
+            console.log("마우스 벗어어어어어어낳어");
+            $(".lnb3").css({
+              display: "none",
+            });
+          });
+      });
+
+      $(function () {
+        $("#tg")
+          .next()
+          .next()
+          .mouseover(function () {
+            console.log("마우스 위이이이위위");
+            $(".lnb4").css({
+              display: "block",
+            });
+          });
+      });
+      $(function () {
+        $("#tg")
+          .next()
+          .next()
+          .mouseout(function () {
+            console.log("마우스 벗어어어어어어낳어");
+            $(".lnb4").css({
+              display: "none",
+            });
+          });
+      });
+      /*header 부분*/
+      var MODAL = document.getElementById("modal");
         
-       $(function(){
-           $("#tg").prev().mouseover(function(){
-            console.log("마우스 위이이이위위")
+        var timerID = setTimeout(modalSet, 3000);
+        function modalSet() {
+            MODAL.style.display = "block"
+        };
 
-            $(".lnb1").css({
-                display : "block"
-            })
+        
+        var BOX = document.getElementById("box");
+        var BOX_COLM = document.getElementById("box_colm");
+        var TITLE_BOX = document.getElementById("item_title");
+        var TITLE_BOX_COLM = document.getElementById("item_title_colm");
+        var WRAP = document.getElementById("box_wrap");
+        var WRAP_COLM = document.getElementById("box_wrap_colm");
+        
+        var BOX_CLOSE = document.getElementById("box_close");
+        var BOX_COLM_CLOSE = document.getElementById("box_colm_close");
+        
+        
 
-           })
-       })
-       $(function(){
-           $("#tg").prev().mouseout(function(){
-            console.log("마우스 벗어어어어어어낳어")
-            $(".lnb1").css({
-                display : "none"
-            })
-           })
-       })
+        var TITLE = [
+            "아이폰 12",
+            "아이패드",
+            "아이팟",
+            "아이워치"
+        ]
 
+        var BOX_WIDTH = 500;
+        var INDEX = 0;
+        // TITLE_BOX.innerText = TITLE[INDEX];
+        ////////////////메인 화면 구성////////
+        var carousel = setInterval(rotation, 2000); //사진 속도 값
+        function rotation() {
+            console.log("현재 인덱스 값:" + INDEX);
+            if (INDEX < 3) {
+                INDEX++;
+            } else {
+                INDEX = 0;
+            }
+            imgDistance = -BOX_WIDTH * INDEX;
 
-       $(function(){
-           $("#tg").mouseover(function(){
-            console.log("마우스 위이이이위위")
-            $(".lnb2").css({
-                display : "block"
-            })
-
-           })
-       })
-       $(function(){
-           $("#tg").mouseout(function(){
-            console.log("마우스 벗어어어어어어낳어")
-            $(".lnb2").css({
-                display : "none"
-            })
-           })
-       })
-
-
-       $(function(){
-           $("#tg").next().mouseover(function(){
-            console.log("마우스 위이이이위위")
-            $(".lnb3").css({
-                display : "block"
-            })
-
-           })
-       })
-       $(function(){
-           $("#tg").next().mouseout(function(){
-            console.log("마우스 벗어어어어어어낳어")
-            $(".lnb3").css({
-                display : "none"
-            })
-           })
-       })
+            BOX.style.backgroundPositionX = imgDistance + "px";
+            BOX_COLM.style.backgroundPositionY = imgDistance + "px";
+            TITLE_BOX.innerText = TITLE[INDEX];
+            TITLE_BOX_COLM.innerText = TITLE[INDEX];
+        }
+////////////////메인 화면 구성////////
+            
+/////클릭할때?? 닫기 버튼////
+        BOX_CLOSE.addEventListener('click',function(){  //가로
+            BOX.style.display="none"
+        });
+        // BOX_CLOSE.innerText
+        BOX_COLM_CLOSE.addEventListener('click',function(){ //세로
+            BOX_COLM.style.display="none"
+        });
+/////클릭할때?? 닫기 버튼////
 
 
-       $(function(){
-           $("#tg").next().next().mouseover(function(){
-            console.log("마우스 위이이이위위")
-            $(".lnb4").css({
-                display : "block"
-            })
+///마우스를 올려 놓고 벗어 놨을때 다시 구동 부분/////
+        WRAP.addEventListener("mouseover", function () {
+            console.log("mouse over!")
+            clearInterval(carousel)
+        });
+        WRAP.addEventListener("mouseout", function () {
+            console.log("mouse out!")
+            carousel = setInterval(rotation, 2000)
+        });
+///마우스를 올려 놓고 벗어 놨을때 다시 구동 부분////
 
-           })
-       })
-       $(function(){
-           $("#tg").next().next().mouseout(function(){
-            console.log("마우스 벗어어어어어어낳어")
-            $(".lnb4").css({
-                display : "none"
-            })
-           })
-       })
     </script>
   </body>
 </html>

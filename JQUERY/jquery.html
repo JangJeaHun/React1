@@ -284,11 +284,13 @@
       });
       /*header 부분*/
       var MODAL = document.getElementById("modal");
-      var TEXT = document.getElementsByClassName("h1_text");
+      var TEXT = document.querySelector(".h1_text");
+
         var timerID = setTimeout(modalSet, 3000);
         function modalSet() {
             MODAL.style.display = "block"
             TEXT.style.display = "none"
+
         };
 
         

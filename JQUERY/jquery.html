@@ -346,11 +346,19 @@
 
 
 ///마우스를 올려 놓고 벗어 놨을때 다시 구동 부분/////
-        WRAP.addEventListener("mouseover", function () {
+        BOX.addEventListener("mouseover", function () {
             console.log("mouse over!")
             clearInterval(carousel)
         });
-        WRAP.addEventListener("mouseout", function () {
+        BOX.addEventListener("mouseout", function () {
+            console.log("mouse out!")
+            carousel = setInterval(rotation, 2000)
+        });
+        BOX_COLM.addEventListener("mouseover", function () {
+            console.log("mouse over!")
+            clearInterval(carousel)
+        });
+        BOX_COLM.addEventListener("mouseout", function () {
             console.log("mouse out!")
             carousel = setInterval(rotation, 2000)
         });
